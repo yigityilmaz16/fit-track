@@ -7,8 +7,28 @@ function WorkoutForm(){
     const [reps,setReps] =useState("");
     const [weight,setWeight] =useState("");
     const [date,setDate] =useState("");
+    function handleWorkout(e){
+        e.preventDefault();
+        const newWorkout={
+            id: Date.now(),
+            exercise,
+            category,
+            sets,
+            reps,
+            weight,
+            date
+        };
+        console.log(newWorkout)
+        setExercise("");
+        setCategory('chest');
+        setSets("");
+        setReps("");
+        setWeight("");
+        setDate("");
+
+    }
     return(
-            <form>
+            <form onSubmit={handleWorkout}>
             <input type="text" placeholder="Exercise Name" value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
             <select name="Category" value={category} onChange={(e)=>setCategory(e.target.value)}>
                 <option value="chest">Chest</option>
