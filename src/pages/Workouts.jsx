@@ -1,8 +1,17 @@
+import {useState} from "react";
+import WorkoutForm from "../Components/WorkoutForm";
+import WorkoutList from "../Components/WorkoutList";
 function Workouts() {
+    const [workouts,setWorkouts]=useState([]);
+    function addWorkout(newWorkout){
+        setWorkouts((prev) => [...prev, newWorkout]);
+            
+    }    
+    console.log(workouts);
   return(
     <div>
-    <p>[workout form buraya gelecek]</p>
-    <p>Henüz antrenman eklenmedi</p>
+    <WorkoutForm addWorkout={addWorkout} />
+    <WorkoutList workouts={workouts} />
     </div>
   );
 }

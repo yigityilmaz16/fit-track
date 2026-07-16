@@ -1,0 +1,38 @@
+.workout-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 32px;
+  padding: 20px;
+  text-align: left;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-3px);
+}
+
+.workout-card p {
+  padding: 8px 10px;
+  color: var(--text-h);
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.workout-card p:first-child {
+  grid-column: 1 / -1;
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .workout-card {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 16px 20px;
+  }
+}

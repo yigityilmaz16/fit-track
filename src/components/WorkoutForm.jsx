@@ -1,5 +1,5 @@
 import { useState } from "react";
-function WorkoutForm(){
+function WorkoutForm({addWorkout}){
 
     const [exercise,setExercise] =useState("");
     const [category,setCategory] =useState('chest');
@@ -18,7 +18,7 @@ function WorkoutForm(){
             weight,
             date
         };
-        console.log(newWorkout)
+        addWorkout(newWorkout);
         setExercise("");
         setCategory('chest');
         setSets("");
