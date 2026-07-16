@@ -3,12 +3,10 @@ function Header(){
     return(
         <header>
             <h1>Welcome to Fit-Track App!</h1>
-            <Link to="/">
-            <p>Dashboard</p>
-            </Link>
-            <Link to="/workouts">
-            <p>Workouts</p>
-            </Link>
+             <nav>
+        <Link to="/">Dashboard</Link>
+        <Link to="/workouts">Workouts</Link>
+             </nav>
 
         </header>
     )
