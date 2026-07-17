@@ -1,13 +1,22 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import WorkoutForm from "../Components/WorkoutForm";
 import WorkoutList from "../Components/WorkoutList";
 function Workouts() {
-    const [workouts,setWorkouts]=useState([]);
+    const [workouts,setWorkouts]=useState(()=>{
+        const savedWorkouts= localStorage.getItem("workouts");
+        return savedWorkouts
+                    ? JSON.parse(savedWorkouts)
+                    : []
+    });
     const [editingWorkout,setEditingWorkout]=useState(null);
     function addWorkout(newWorkout){
         setWorkouts((prev) => [...prev, newWorkout]);
             
     }    
+    useEffect(()=>{
+        localStorage.setItem("workouts", JSON.stringify(workouts));
+    },[workouts])
+
     function deleteWorkout(id){
        const yeni= workouts.filter((workout)=>{
             return workout.id !== id;
