@@ -1,6 +1,8 @@
 import "./WorkoutCard.css";
-
-function WorkoutCard({workout,deleteWorkout, startEdit}){
+import { useContext } from "react";
+import { WorkoutContext } from "../context/WorkoutContext";
+function WorkoutCard({workout}){
+    const { deleteWorkout, startEdit } = useContext(WorkoutContext);
     return(
         <div className="workout-card">
 

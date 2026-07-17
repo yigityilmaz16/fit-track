@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
-function WorkoutForm({addWorkout, editingWorkout,updateWorkout}){
-
+import { useState, useEffect, useContext } from "react";
+import { WorkoutContext } from "../context/WorkoutContext";
+function WorkoutForm(){
+    const {
+    addWorkout,
+    editingWorkout,
+    updateWorkout
+    } = useContext(WorkoutContext);
     const [exercise,setExercise] =useState("");
     const [category,setCategory] =useState('chest');
     const [sets,setSets] =useState("");
