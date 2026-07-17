@@ -7,6 +7,7 @@ if (workouts.length === 0){
 }
 return(
     <div>
+        
         {workouts.map((workout)=>{
            return <WorkoutCard workout={workout} key={workout.id} deleteWorkout={deleteWorkout} startEdit={startEdit} />
         })}

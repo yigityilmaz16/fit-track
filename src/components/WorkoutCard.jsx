@@ -3,6 +3,7 @@ import "./WorkoutCard.css";
 function WorkoutCard({workout,deleteWorkout, startEdit}){
     return(
         <div className="workout-card">
+
             <p>{workout.exercise}</p>
             <p>{workout.category}</p>
             <p>{workout.sets}</p>
