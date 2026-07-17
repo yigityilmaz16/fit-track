@@ -1,5 +1,5 @@
-import { useState } from "react";
-function WorkoutForm({addWorkout}){
+import { useState, useEffect } from "react";
+function WorkoutForm({addWorkout, editingWorkout,updateWorkout}){
 
     const [exercise,setExercise] =useState("");
     const [category,setCategory] =useState('chest');
@@ -10,7 +10,6 @@ function WorkoutForm({addWorkout}){
     function handleWorkout(e){
         e.preventDefault();
         const newWorkout={
-            id: Date.now(),
             exercise,
             category,
             sets,
@@ -18,15 +17,33 @@ function WorkoutForm({addWorkout}){
             weight,
             date
         };
+        if(editingWorkout){
+            newWorkout.id=editingWorkout.id;
+            updateWorkout(newWorkout);
+            
+        }else{
+        newWorkout.id=Date.now();
         addWorkout(newWorkout);
+        }
         setExercise("");
         setCategory('chest');
         setSets("");
         setReps("");
         setWeight("");
         setDate("");
-
     }
+    useEffect(()=>{
+      if(editingWorkout){
+        setExercise(editingWorkout.exercise);
+        setCategory(editingWorkout.category);
+        setSets(editingWorkout.sets);
+        setReps(editingWorkout.reps);
+        setWeight(editingWorkout.weight);
+        setDate(editingWorkout.date);
+       
+      }
+        
+    },[editingWorkout])
     return(
             <form onSubmit={handleWorkout}>
             <input type="text" placeholder="Exercise Name" value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
@@ -42,7 +59,7 @@ function WorkoutForm({addWorkout}){
             <input type="number" placeholder="Reps" value={reps} onChange={(e)=>setReps(e.target.value)}></input>
             <input type="number" placeholder="Weight" value={weight} onChange={(e)=>setWeight(e.target.value)}></input>
             <input type="date" placeholder="Date" value={date} onChange={(e)=>setDate(e.target.value)}></input>
-            <button type="submit">Add Workout</button>
+            <button type="submit">{editingWorkout ? "Edit" : "Add"}</button>
             </form>
     );
 }
