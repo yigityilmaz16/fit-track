@@ -37,7 +37,7 @@ function Dashboard() {
         <p>
             {lastWorkout
          ? `${lastWorkout.exercise} , ${lastWorkout.date}`
-         : "Henüz antrenman yok"}
+         : "No Workouts Yet"}
        </p>
       </div>
     </div>
