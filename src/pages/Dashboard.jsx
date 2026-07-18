@@ -16,6 +16,42 @@ function Dashboard() {
         return acc.date > workout.date ? acc : workout;
       }, workouts[0])
     : null;
+  const mostTrained= 
+  workouts.length > 0
+    ? workouts.reduce((acc,workout) => {
+     if(workout.category === "chest"){
+      acc.chest+=1;
+     }else if(workout.category === "back"){
+      acc.back+=1;
+     }else if(workout.category === "shoulder"){
+      acc.shoulder+=1;
+     }else if(workout.category === "legs"){
+      acc.legs+=1;
+     }else if(workout.category === "arms"){
+      acc.arms+=1
+     }else{
+      acc.cardio+=1;
+     }
+     return acc;
+    }, {
+  chest: 0,
+  back: 0,
+  shoulder: 0,
+  legs: 0,
+  arms: 0,
+  cardio: 0
+})
+    : null;
+const winner = Object.entries(mostTrained).reduce((acc, current) => {
+
+    if ( current[1]>acc[1] ) {
+        return current;
+    }
+
+    return acc;
+
+});
+
   return (
     <>
           <h1>FitTrack Dashboard</h1>
@@ -39,6 +75,10 @@ function Dashboard() {
          ? `${lastWorkout.exercise} , ${lastWorkout.date}`
          : "No Workouts Yet"}
        </p>
+      </div>
+      <div className="stat-card">
+        <h3>🏆 Most Trained</h3>
+        <p>{winner[0]}</p>
       </div>
     </div>
     </>
