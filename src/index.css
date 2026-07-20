@@ -18,6 +18,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
+body.dark {
+  --bg: #0d100e;
+  --surface: #151916;
+  --surface-raised: #1c211d;
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f4f7f2;
+  --muted: #9aa39c;
+  --accent: #c8ff35;
+  --accent-soft: rgba(200, 255, 53, 0.13);
+  --danger: #ff7166;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -28,6 +40,13 @@ body {
   min-height: 100vh;
   background:
     radial-gradient(circle at 75% -10%, rgba(183, 237, 36, 0.22), transparent 30rem),
+    var(--bg);
+  transition: color .25s ease, background-color .25s ease;
+}
+
+body.dark {
+  background:
+    radial-gradient(circle at 75% -10%, rgba(200, 255, 53, .12), transparent 30rem),
     var(--bg);
 }
 
@@ -78,6 +97,34 @@ button {
 .main-nav {
   display: flex;
   gap: 8px;
+}
+
+.theme-toggle {
+  min-width: 112px;
+  padding: 10px 15px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(29, 36, 30, .07);
+  font-size: 13px;
+  font-weight: 700;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 237, 36, .65);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+body.dark .theme-toggle {
+  background: var(--surface-raised);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
 }
 
 .main-nav a {
@@ -178,6 +225,11 @@ select {
   color-scheme: light;
 }
 
+body.dark select,
+body.dark input[type="date"] {
+  color-scheme: dark;
+}
+
 .primary-button {
   padding: 0 24px;
   color: #11140e;
@@ -244,6 +296,12 @@ select {
     font-size: 25px;
   }
 
+  .theme-toggle {
+    min-width: auto;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
   .main-nav a {
     padding: 9px 11px;
     font-size: 12px;
@@ -264,5 +322,22 @@ select {
   .primary-button,
   .search-field {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .brand {
+    width: calc(100% - 95px);
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -19,10 +19,19 @@
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
+body.dark .stat-card {
+  background: linear-gradient(145deg, #191d1a, #121512);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .2);
+}
+
 .stat-card:hover {
   transform: translateY(-4px);
   border-color: rgba(200, 255, 53, .35);
   box-shadow: 0 20px 48px rgba(30, 38, 31, .1);
+}
+
+body.dark .stat-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .3);
 }
 
 .stat-card::after {
@@ -65,6 +74,12 @@
 }
 
 .stat-card:nth-child(1) {
+  background:
+    linear-gradient(110deg, rgba(200, 255, 53, .96), rgba(184, 242, 28, .88)),
+    var(--accent);
+}
+
+body.dark .stat-card:nth-child(1) {
   background:
     linear-gradient(110deg, rgba(200, 255, 53, .96), rgba(184, 242, 28, .88)),
     var(--accent);

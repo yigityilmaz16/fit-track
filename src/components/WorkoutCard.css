@@ -19,6 +19,14 @@
   box-shadow: 0 12px 30px rgba(30, 38, 31, .08);
 }
 
+body.dark .workout-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+body.dark .workout-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .28);
+}
+
 .workout-card p {
   min-width: 0;
   margin: 0;
