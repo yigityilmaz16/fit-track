@@ -73,9 +73,9 @@ function WorkoutForm(){
         
     },[editingWorkout])
     return(
-            <form onSubmit={handleWorkout}>
-            <input type="text" placeholder="Exercise Name" required value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
-            <select name="Category" value={category} onChange={(e)=>setCategory(e.target.value)}>
+            <form className="workout-form" onSubmit={handleWorkout}>
+            <input className="field field-exercise" type="text" placeholder="Exercise Name" required value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
+            <select className="field" name="Category" value={category} onChange={(e)=>setCategory(e.target.value)}>
                 <option value="chest">Chest</option>
                 <option value="back">Back</option>
                 <option value="legs">Legs</option>
@@ -83,11 +83,11 @@ function WorkoutForm(){
                 <option value="arms">Arms</option>
                 <option value="cardio">Cardio</option>
             </select>
-            <input type="number" placeholder="Set" min="1" value={sets} onChange={(e)=>setSets(e.target.value)}></input>
-            <input type="number" placeholder="Reps" min="1" value={reps} onChange={(e)=>setReps(e.target.value)}></input>
-            <input type="number" placeholder="Weight" min="0" value={weight} onChange={(e)=>setWeight(e.target.value)}></input>
-            <input type="date" placeholder="Date" required  value={date} onChange={(e)=>setDate(e.target.value)}></input>
-            <button type="submit">{editingWorkout ? "Edit" : "Add"}</button>
+            <input className="field" type="number" placeholder="Set" min="1" value={sets} onChange={(e)=>setSets(e.target.value)}></input>
+            <input className="field" type="number" placeholder="Reps" min="1" value={reps} onChange={(e)=>setReps(e.target.value)}></input>
+            <input className="field" type="number" placeholder="Weight" min="0" value={weight} onChange={(e)=>setWeight(e.target.value)}></input>
+            <input className="field field-date" type="date" placeholder="Date" required  value={date} onChange={(e)=>setDate(e.target.value)}></input>
+            <button className="primary-button" type="submit">{editingWorkout ? "Edit" : "Add"}</button>
             </form>
     );
 }

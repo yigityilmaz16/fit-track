@@ -12,8 +12,8 @@ function WorkoutCard({workout}){
             <p>{workout.reps}</p>
             <p>{workout.weight}</p>
             <p>{workout.date}</p>
-            <button onClick={()=>deleteWorkout(workout.id)}>Delete</button>
-            <button onClick={()=>startEdit(workout)}>Edit</button>
+            <button className="card-button delete-button" onClick={()=>deleteWorkout(workout.id)}>Delete</button>
+            <button className="card-button edit-button" onClick={()=>startEdit(workout)}>Edit</button>
         </div>
     )
 }

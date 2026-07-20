@@ -76,7 +76,7 @@ const today = new Date();
 
   return (
     <>
-          <h1>FitTrack Dashboard</h1>
+          <h1 className="page-title">FitTrack Dashboard</h1>
     <div className="dashboard">
       <div className="stat-card">
         <h3>Total Workout</h3>

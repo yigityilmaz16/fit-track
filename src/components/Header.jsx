@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 function Header(){
     return(
-        <header>
-            <h1>Welcome to Fit-Track App!</h1>
-             <nav>
+        <header className="site-header">
+            <h1 className="brand">Welcome to Fit-Track App!</h1>
+             <nav className="main-nav">
         <Link to="/">Dashboard</Link>
         <Link to="/workouts">Workouts</Link>
              </nav>
