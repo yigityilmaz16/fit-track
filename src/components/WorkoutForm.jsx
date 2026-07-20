@@ -14,14 +14,37 @@ function WorkoutForm(){
     const [date,setDate] =useState("");
     function handleWorkout(e){
         e.preventDefault();
-        const newWorkout={
-            exercise,
-            category,
-            sets,
-            reps,
-            weight,
-            date
-        };
+         if (exercise.trim() === "") {
+            alert("Exercise name cannot be empty.");
+             return;
+            }
+
+         if (Number(sets) < 1) {
+             alert("Sets must be at least 1.");
+             return;
+             }
+
+         if (Number(reps) < 1) {
+              alert("Reps must be at least 1.");
+              return;
+             }
+
+         if (Number(weight) < 0) {
+              alert("Weight cannot be negative.");
+                 return;
+            }
+         if (date === "") {
+             alert("Date must be selected.");
+                 return;
+            }
+       const newWorkout = {
+             exercise: exercise.trim(),
+             category,
+             sets: Number(sets),
+             reps: Number(reps),
+             weight: Number(weight),
+             date
+            };
         if(editingWorkout){
             newWorkout.id=editingWorkout.id;
             updateWorkout(newWorkout);
@@ -51,7 +74,7 @@ function WorkoutForm(){
     },[editingWorkout])
     return(
             <form onSubmit={handleWorkout}>
-            <input type="text" placeholder="Exercise Name" value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
+            <input type="text" placeholder="Exercise Name" required value={exercise} onChange={(e)=>setExercise(e.target.value)}></input>
             <select name="Category" value={category} onChange={(e)=>setCategory(e.target.value)}>
                 <option value="chest">Chest</option>
                 <option value="back">Back</option>
@@ -60,10 +83,10 @@ function WorkoutForm(){
                 <option value="arms">Arms</option>
                 <option value="cardio">Cardio</option>
             </select>
-            <input type="number" placeholder="Set" value={sets} onChange={(e)=>setSets(e.target.value)}></input>
-            <input type="number" placeholder="Reps" value={reps} onChange={(e)=>setReps(e.target.value)}></input>
-            <input type="number" placeholder="Weight" value={weight} onChange={(e)=>setWeight(e.target.value)}></input>
-            <input type="date" placeholder="Date" value={date} onChange={(e)=>setDate(e.target.value)}></input>
+            <input type="number" placeholder="Set" min="1" value={sets} onChange={(e)=>setSets(e.target.value)}></input>
+            <input type="number" placeholder="Reps" min="1" value={reps} onChange={(e)=>setReps(e.target.value)}></input>
+            <input type="number" placeholder="Weight" min="0" value={weight} onChange={(e)=>setWeight(e.target.value)}></input>
+            <input type="date" placeholder="Date" required  value={date} onChange={(e)=>setDate(e.target.value)}></input>
             <button type="submit">{editingWorkout ? "Edit" : "Add"}</button>
             </form>
     );
