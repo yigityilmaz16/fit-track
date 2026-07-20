@@ -51,6 +51,28 @@ const winner = Object.entries(mostTrained).reduce((acc, current) => {
     return acc;
 
 });
+const today = new Date();
+  const day = today.getDay();
+
+  const daysToMonday = day === 0 ? 6 : day - 1;
+
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - daysToMonday);
+  monday.setHours(0, 0, 0, 0);
+
+  today.setHours(23, 59, 59, 999);
+
+  const thisWeek = workouts.reduce((acc, workout) => {
+    const workoutDate = new Date(workout.date);
+
+    if (workoutDate >= monday && workoutDate <= today) {
+      return acc + 1;
+    }
+
+    return acc;
+  }, 0);
+
+
 
   return (
     <>
@@ -69,7 +91,7 @@ const winner = Object.entries(mostTrained).reduce((acc, current) => {
         <p>{totalVolume}</p>
       </div>
       <div className="stat-card">
-        <h3>Son Antrenman</h3>
+        <h3>Last Workout</h3>
         <p>
             {lastWorkout
          ? `${lastWorkout.exercise} , ${lastWorkout.date}`
@@ -79,6 +101,10 @@ const winner = Object.entries(mostTrained).reduce((acc, current) => {
       <div className="stat-card">
         <h3>🏆 Most Trained</h3>
         <p>{winner[0]}</p>
+      </div>
+      <div className="stat-card">
+      <h3>📅 This Week</h3>
+      <p>{thisWeek}</p>
       </div>
     </div>
     </>
