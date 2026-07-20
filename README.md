@@ -1,16 +1,117 @@
-# React + Vite
+# FitTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[English](README.md) | [Türkçe](README.tr.md)
 
-Currently, two official plugins are available:
+FitTrack is a modern fitness tracking application that helps you log your workouts and monitor your progress from a single dashboard. Built with React, it provides a fast, responsive, and user-friendly experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
 
-## React Compiler
+https://fit-track-red-pi.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Add, edit, and delete workouts
+- Search workouts by exercise name
+- Filter workouts by muscle group
+- View total workout, set, and volume statistics
+- See your most recent workout
+- Identify your most frequently trained muscle group
+- Track the number of workouts completed this week
+- Keep workout data between browser sessions
+- Switch between light and dark themes
+- Responsive design for mobile, tablet, and desktop
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React 19
+- React Router
+- Context API
+- Local Storage
+- Vite
+- CSS
+
+## Getting Started
+
+Make sure Node.js is installed on your computer, then run:
+
+```bash
+git clone https://github.com/yigityilmaz16/fit-track.git
+cd fit-track
+npm install
+npm run dev
+```
+
+Open the local address displayed in your terminal.
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Starts the development server.
+
+```bash
+npm run build
+```
+
+Creates an optimized production build.
+
+```bash
+npm run preview
+```
+
+Previews the production build locally.
+
+```bash
+npm run lint
+```
+
+Runs the code quality checks.
+
+## Project Structure
+
+```text
+src/
+├── components/     # Form, card, list, and header components
+├── context/        # Global workout state management
+├── hooks/          # Reusable custom hooks
+├── pages/          # Dashboard and Workouts pages
+├── App.jsx         # Routing and theme management
+├── index.css       # Global styles and theme colors
+└── main.jsx        # Application entry point
+```
+
+## Data Storage
+
+Workout data is stored in the browser's Local Storage. Your records remain available after refreshing or reopening the page, but they are limited to the current browser and device.
+
+## 📸 Screenshots
+
+### Dashboard (Light Mode)
+
+![FitTrack dashboard in light mode](screenshots/dashboard-light.png)
+
+### Dashboard (Dark Mode)
+
+![FitTrack dashboard in dark mode](screenshots/dashboard-dark.png)
+
+### Workouts Page (Light Mode)
+
+![FitTrack workouts page in light mode](screenshots/workouts-light.png)
+
+### Workouts Page (Dark Mode)
+
+![FitTrack workouts page in dark mode](screenshots/workouts-dark.png)
+
+## Possible Improvements
+
+- Progress charts and visual reports
+- Workout goals
+- User accounts and cloud synchronization
+- Exercise history and personal records
+- Data export and backup
+
+## License
+
+This project was created for educational and personal use.

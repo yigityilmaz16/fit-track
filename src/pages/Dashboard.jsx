@@ -42,15 +42,15 @@ function Dashboard() {
   cardio: 0
 })
     : null;
-const winner = Object.entries(mostTrained).reduce((acc, current) => {
-
-    if ( current[1]>acc[1] ) {
+const winner = mostTrained
+  ? Object.entries(mostTrained).reduce((acc, current) => {
+      if (current[1] > acc[1]) {
         return current;
-    }
+      }
 
-    return acc;
-
-});
+      return acc;
+    })
+  : ["No Workouts Yet", 0];
 const today = new Date();
   const day = today.getDay();
 

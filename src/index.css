@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--text);
   background:
     radial-gradient(circle at 75% -10%, rgba(183, 237, 36, 0.22), transparent 30rem),
     var(--bg);
