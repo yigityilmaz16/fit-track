@@ -6,7 +6,7 @@ FitTrack is a modern fitness tracking application that helps you log your workou
 
 ## Live Demo
 
-https://fit-track-red-pi.vercel.app/
+https://fittrack-yigit.vercel.app/
 
 ## Features
 
@@ -115,3 +115,9 @@ Workout data is stored in the browser's Local Storage. Your records remain avail
 ## License
 
 This project was created for educational and personal use.
+
+## Author
+
+**Yiğit Yılmaz**
+
+GitHub: [https://github.com/yigityilmaz16](https://github.com/yigityilmaz16)

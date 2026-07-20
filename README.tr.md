@@ -6,7 +6,7 @@ FitTrack, antrenmanlarını kaydetmeni ve gelişimini tek bir ekrandan takip etm
 
 ## Canlı Demo
 
-https://fit-track-red-pi.vercel.app/
+https://fittrack-yigit.vercel.app/
 
 ## Özellikler
 
@@ -115,3 +115,9 @@ Antrenman verileri tarayıcının Local Storage alanında saklanır. Bu sayede s
 ## Lisans
 
 Bu proje eğitim ve kişisel kullanım amacıyla geliştirilmiştir.
+
+## Geliştirici
+
+**Yiğit Yılmaz**
+
+GitHub: [https://github.com/yigityilmaz16](https://github.com/yigityilmaz16)
